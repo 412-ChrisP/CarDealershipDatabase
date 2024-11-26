@@ -47,3 +47,13 @@ CREATE TABLE sales_contracts
     FOREIGN KEY (vin) REFERENCES vehicles(vin)
 );
 
+-- Table 5) lease_contracts
+CREATE TABLE lease_contracts 
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    vin INT,
+    expectedEndingValue DOUBLE NOT NULL,
+    leaseFee DOUBLE NOT NULL,
+    FOREIGN KEY (vin) REFERENCES vehicles(vin) ON DELETE CASCADE
+);
+
