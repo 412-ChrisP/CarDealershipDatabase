@@ -29,6 +29,21 @@ CREATE TABLE vehicles
 CREATE TABLE inventory 
 (
     dealership_id INT,
-    vin INT
+    vin INT,
+    PRIMARY KEY (dealership_id, vin),
+    FOREIGN KEY (dealership_id) REFERENCES dealerships(dealership_id),
+    FOREIGN KEY (vin) REFERENCES vehicles(vin) 
+);
+
+-- Table 4) sales_contracts
+CREATE TABLE sales_contracts 
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    vin INT,
+    salesTaxAmount DOUBLE NOT NULL,
+    recordingFee DOUBLE NOT NULL,
+    processingFee DOUBLE NOT NULL,
+    financeOption BOOLEAN,
+    FOREIGN KEY (vin) REFERENCES vehicles(vin)
 );
 
