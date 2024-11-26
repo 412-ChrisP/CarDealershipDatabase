@@ -57,3 +57,33 @@ CREATE TABLE lease_contracts
     FOREIGN KEY (vin) REFERENCES vehicles(vin) ON DELETE CASCADE
 );
 
+-- Dealership sample data
+INSERT INTO dealerships (name, address, phone) 
+VALUES 
+('Toyota 51', '112 Green Drive', '123-4565'),
+('Bowie Motor Co', '7311 Charlotte Street', '321-5432'),
+('Rohrich Cadillac', '4341 Alton Ave', '420-6969');
+
+-- Vehicles sample data
+INSERT INTO vehicles (vin, year, make, model, vehicleType, color, odometer, price, sold) 
+VALUES
+(1121, 2006, 'Lexus', 'IS250', 'Sedan', 'Red', 147000, 8000, FALSE),
+(1654, 2017, 'Cadillac', 'XT5', 'SUV', 'White', 84000, 21000, FALSE),
+(1985, 2011, 'Cadillac', 'Escalade', 'SUV', 'Black', 139000, 15000, TRUE);
+
+-- Inventory sample data
+INSERT INTO inventory (dealership_id, vin) 
+VALUES 
+(1, 1121), 
+(2, 1654), 
+(3, 1985);
+
+-- Sales_Contracts sample data
+INSERT INTO sales_contracts (vin, salesTaxAmount, recordingFee, processingFee, financeOption) 
+VALUES 
+(1985, 1500, 150, 300, TRUE);
+
+-- Lease_Contracts sample data 
+INSERT INTO lease_contracts (vin, expectedEndingValue, leaseFee) 
+VALUES 
+(1121, 5000, 350);
