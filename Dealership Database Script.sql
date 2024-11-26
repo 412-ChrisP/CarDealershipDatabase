@@ -10,3 +10,16 @@ CREATE TABLE dealerships (
     phone VARCHAR(12)
 );
 
+-- Table 2: vehicles
+CREATE TABLE vehicles (
+    vin INT PRIMARY KEY,
+    year INT NOT NULL,
+    make VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    vehicleType VARCHAR(50),
+    color VARCHAR(20),
+    odometer INT,
+    price DOUBLE NOT NULL,
+    sold BOOLEAN DEFAULT FALSE
+);
+
